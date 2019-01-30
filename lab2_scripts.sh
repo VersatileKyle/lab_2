@@ -1,5 +1,5 @@
 #!/bin/bash
-# Authors : Kyle Stewart - Parter: Yair Bennaim
+# Authors : Kyle Stewart - Partner: Yair Bennaim
 # Date: 1/30/2019
 
 #Problem 1 Code:
@@ -9,12 +9,17 @@ read regExp
 echo "Enter a filename: "
 read filename
 
-#grep -c -P $regExp regex_practice.txt
-#echo $regExp
-
-#find number of phone numbers
+#Problem 1 - # of phone numbers in the file
 grep -c -P '\d{3}-\d{3}-\d{4}' $filename
+
+#Problem 2 - # of emails in the file
 grep -c -P '.*\@.*\.[a-z]{3}'  $filename
+
+#Problem 3 - 303 phone numbers
 grep -P '(303)-\d{3}-\d{4}$' $filename > phone_results.txt
+
+#Problem 4 - finding all geocities emails
 grep -P '.*\@(geocities.com)' $filename > email_results.txt
+
+#Problem 5 - user's expression
 grep -P $regExp $filename > command_results.txt
